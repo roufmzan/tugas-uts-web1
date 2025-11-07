@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout Pemesanan - Toko Buku Online">
+    <title>Checkout - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand"><img src="assets/logo.png" alt="Logo" class="brand-logo"> Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="card">
+            <h2>Halaman Pemesanan</h2>
+            
+            <!-- Pilih Buku -->
+            <div class="form-group">
+                <label for="bookSelect">Pilih Buku untuk Dipesan</label>
+                <select id="bookSelect" class="form-control">
+                    <option value="">-- Pilih Buku --</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="quantity">Jumlah</label>
+                    <input 
+                        type="number" 
+                        id="quantity" 
+                        class="form-control" 
+                        min="1" 
+                        value="1"
+                    >
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-success w-100" onclick="addToCart()">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Keranjang Belanja -->
+            <h3 class="mt-20">Keranjang Belanja</h3>
+            <div id="cartContainer" class="cart-items">
+                <p class="text-center" style="color: #6b7280;">Keranjang masih kosong</p>
+            </div>
+        </div>
+        
+        <!-- Informasi Pemesan -->
+        <div class="card">
+            <h2>Informasi Pemesan</h2>
+            <form id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Nama Lengkap *</label>
+                        <input 
+                            type="text" 
+                            id="customerName" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Email *</label>
+                        <input 
+                            type="email" 
+                            id="customerEmail" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerPhone">No. Telepon *</label>
+                        <input 
+                            type="tel" 
+                            id="customerPhone" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="customerCity">Kota *</label>
+                        <input 
+                            type="text" 
+                            id="customerCity" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerAddress">Alamat Lengkap *</label>
+                    <textarea 
+                        id="customerAddress" 
+                        class="form-control" 
+                        required
+                    ></textarea>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Informasi Pembayaran -->
+        <div class="card">
+            <h2>Informasi Pembayaran</h2>
+            <div class="form-group">
+                <label for="paymentMethod">Metode Pembayaran *</label>
+                <select id="paymentMethod" class="form-control">
+                    <option value="">-- Pilih Metode Pembayaran --</option>
+                    <option value="transfer">Transfer Bank</option>
+                    <option value="ewallet">E-Wallet (OVO/GoPay/DANA)</option>
+                    <option value="cod">COD (Cash on Delivery)</option>
+                    <option value="credit">Kartu Kredit</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="shippingMethod">Metode Pengiriman *</label>
+                <select id="shippingMethod" class="form-control" onchange="calculateTotal()">
+                    <option value="">-- Pilih Ekspedisi --</option>
+                    <option value="reguler" data-cost="10000">Reguler (Rp 10.000) - 3-5 hari</option>
+                    <option value="express" data-cost="25000">Express (Rp 25.000) - 1-2 hari</option>
+                    <option value="same-day" data-cost="50000">Same Day (Rp 50.000) - Hari ini</option>
+                </select>
+            </div>
+            
+            <!-- Ringkasan Pembayaran -->
+            <div class="order-summary">
+                <h3>Ringkasan Pembayaran</h3>
+                <div class="summary-row">
+                    <span>Subtotal Buku:</span>
+                    <span id="subtotal">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Ongkos Kirim:</span>
+                    <span id="shippingCost">Rp 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Pembayaran:</span>
+                    <span id="totalPayment">Rp 0</span>
+                </div>
+            </div>
+            
+            <button class="btn btn-success w-100 mt-20" onclick="processCheckout()">
+                Proses Pesanan
+            </button>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

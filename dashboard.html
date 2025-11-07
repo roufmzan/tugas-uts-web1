@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard Toko Buku Online">
+    <title>Dashboard - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand"><img src="assets/logo.png" alt="Logo" class="brand-logo"> Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="#" id="userName">User</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="dashboard-header">
+            <h1 class="greeting" id="greeting">Selamat Datang!</h1>
+            <p class="date-time" id="dateTime"></p>
+        </div>
+        
+        <div class="card">
+            <h2>Menu Utama</h2>
+            <div class="dashboard-grid">
+                <a href="stok.html" class="dashboard-card">
+                    <div class="dashboard-card-icon">📦</div>
+                    <h3>Katalog Buku</h3>
+                    <p>Lihat dan kelola stok buku</p>
+                </a>
+                
+                <a href="tracking.html" class="dashboard-card">
+                    <div class="dashboard-card-icon">🚚</div>
+                    <h3>Tracking Pengiriman</h3>
+                    <p>Lacak status pengiriman pesanan</p>
+                </a>
+                
+                <a href="laporan.html" class="dashboard-card">
+                    <div class="dashboard-card-icon">📊</div>
+                    <h3>Laporan Pemesanan</h3>
+                    <p>Lihat laporan pemesanan</p>
+                </a>
+                
+                <a href="history.html" class="dashboard-card">
+                    <div class="dashboard-card-icon">📜</div>
+                    <h3>History Transaksi</h3>
+                    <p>Riwayat transaksi pemesanan</p>
+                </a>
+            </div>
+        </div>
+    
+        
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

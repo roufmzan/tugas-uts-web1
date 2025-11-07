@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin - Daftar User Terdaftar">
+    <title>Admin Users - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand">📚 Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="admin-users.html">Daftar User</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="card">
+            <h2>👥 Daftar Semua User</h2>
+            <p style="color: #6b7280; margin-bottom: 20px;">
+                Halaman ini menampilkan semua user (default + terdaftar via registrasi)
+            </p>
+            
+            <div class="alert alert-info">
+                <strong>ℹ️ Info:</strong> User default berasal dari <code>data.js</code>, 
+                sedangkan user terdaftar tersimpan di <code>localStorage</code>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <button class="btn btn-danger" onclick="clearRegisteredUsers()">
+                    🗑️ Hapus Semua User Terdaftar
+                </button>
+                <button class="btn btn-secondary" onclick="refreshUserList()" style="margin-left: 10px;">
+                    🔄 Refresh
+                </button>
+            </div>
+            
+            <h3>User Default (dari data.js)</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Sumber</th>
+                        </tr>
+                    </thead>
+                    <tbody id="defaultUsersTable">
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin-top: 30px;">User Terdaftar (dari localStorage)</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Sumber</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registeredUsersTable">
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>📊 Statistik User</h3>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">👤</div>
+                    <h3 id="totalDefaultUsers">0</h3>
+                    <p>User Default</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">✅</div>
+                    <h3 id="totalRegisteredUsers">0</h3>
+                    <p>User Terdaftar</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">👥</div>
+                    <h3 id="totalAllUsers">0</h3>
+                    <p>Total Semua User</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/admin-users.js"></script>
+</body>
+</html>

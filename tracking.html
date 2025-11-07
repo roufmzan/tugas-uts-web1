@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tracking Pengiriman - Toko Buku Online">
+    <title>Tracking Pengiriman - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand"><img src="assets/logo.png" alt="Logo" class="brand-logo"> Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="card">
+            <h2>Tracking Pengiriman</h2>
+            <p>Masukkan nomor Delivery Order (DO) untuk melacak status pengiriman Anda</p>
+            
+            <form id="trackingForm" class="mt-20">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="doNumber">Nomor Delivery Order</label>
+                        <input 
+                            type="text" 
+                            id="doNumber" 
+                            class="form-control" 
+                            placeholder="Contoh: DO001"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button type="submit" class="btn btn-primary w-100">🔍 Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Hasil Tracking -->
+        <div id="trackingResult" style="display: none;">
+            <div class="card">
+                <h2>Informasi Pengiriman</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nomor DO:</label>
+                        <p style="font-weight: 600; font-size: 18px; color: #2563eb;" id="resultDoNumber"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Pemesan:</label>
+                        <p style="font-weight: 600; font-size: 18px;" id="resultCustomerName"></p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Status Pengiriman:</label>
+                    <div class="progress">
+                        <div class="progress-bar" id="progressBar" style="width: 0%;">
+                            <span id="progressText">0%</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px; font-weight: 600; font-size: 16px;" id="statusText"></p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Detail Pengiriman</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ekspedisi:</label>
+                        <p id="resultExpedition"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Kirim:</label>
+                        <p id="resultShipDate"></p>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Jenis Paket:</label>
+                        <p id="resultPackageType"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Pembayaran:</label>
+                        <p style="font-weight: 600; color: #10b981; font-size: 18px;" id="resultTotalPayment"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Riwayat Pengiriman</h3>
+                <div class="timeline" id="trackingTimeline">
+                    <!-- Timeline akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- No Data Message -->
+        <div id="noDataMessage" class="card" style="display: none;">
+            <div class="alert alert-danger">
+                <strong>❌ Data tidak ditemukan!</strong><br>
+                Nomor Delivery Order yang Anda masukkan tidak ditemukan. Silakan periksa kembali nomor DO Anda.
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html>

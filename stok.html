@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Katalog Buku - Toko Buku Online">
+    <title>Katalog Buku - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand"><img src="assets/logo.png" alt="Logo" class="brand-logo"> Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="card">
+            <div class="d-flex justify-between align-center mb-20">
+                <h2>Katalog Buku</h2>
+                <div class="d-flex gap-10">
+                    <button class="btn btn-outline" onclick="resetCatalog()">Reset Katalog</button>
+                    <button class="btn btn-success" onclick="openAddBookModal()">+ Tambah Buku</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="form-control" 
+                    placeholder="🔍 Cari buku berdasarkan judul, penulis, atau kategori..."
+                    onkeyup="searchBooks()"
+                >
+            </div>
+            
+            <h3 class="mb-20">Daftar Buku</h3>
+            <div id="bookGrid" class="book-grid">
+                <!-- Kartu buku dirender oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Tambah Buku -->
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tambah Buku Baru</h2>
+                <span class="close" onclick="closeModal('addBookModal')">&times;</span>
+            </div>
+            <form id="addBookForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookTitle">Judul Buku *</label>
+                        <input 
+                            type="text" 
+                            id="bookTitle" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="bookAuthor">Penulis *</label>
+                        <input 
+                            type="text" 
+                            id="bookAuthor" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookPublisher">Penerbit *</label>
+                        <input 
+                            type="text" 
+                            id="bookPublisher" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="bookYear">Tahun Terbit *</label>
+                        <input 
+                            type="number" 
+                            id="bookYear" 
+                            class="form-control" 
+                            min="1900" 
+                            max="2099"
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookCategory">Kategori *</label>
+                        <input 
+                            type="text" 
+                            id="bookCategory" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="bookISBN">ISBN *</label>
+                        <input 
+                            type="text" 
+                            id="bookISBN" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookImage">URL Gambar Sampul (opsional)</label>
+                        <input 
+                            type="url" 
+                            id="bookImage" 
+                            class="form-control" 
+                            placeholder="https://.../cover.jpg"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="bookImageFile">Upload Gambar Sampul (opsional)</label>
+                        <input 
+                            type="file" 
+                            id="bookImageFile" 
+                            class="form-control" 
+                            accept="image/*"
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookPrice">Harga (Rp) *</label>
+                        <input 
+                            type="number" 
+                            id="bookPrice" 
+                            class="form-control" 
+                            min="0"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="bookStock">Stok *</label>
+                        <input 
+                            type="number" 
+                            id="bookStock" 
+                            class="form-control" 
+                            min="0"
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookDescription">Deskripsi</label>
+                    <textarea 
+                        id="bookDescription" 
+                        class="form-control"
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-success w-100">Tambah Buku</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Edit Buku -->
+    <div id="editBookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Buku</h2>
+                <span class="close" onclick="closeModal('editBookModal')">&times;</span>
+            </div>
+            <form id="editBookForm">
+                <input type="hidden" id="editBookId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editBookTitle">Judul Buku *</label>
+                        <input 
+                            type="text" 
+                            id="editBookTitle" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="editBookAuthor">Penulis *</label>
+                        <input 
+                            type="text" 
+                            id="editBookAuthor" 
+                            class="form-control" 
+                            required
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editBookPrice">Harga (Rp) *</label>
+                        <input 
+                            type="number" 
+                            id="editBookPrice" 
+                            class="form-control" 
+                            min="0"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="editBookStock">Stok *</label>
+                        <input 
+                            type="number" 
+                            id="editBookStock" 
+                            class="form-control" 
+                            min="0"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editBookImage">URL Gambar Sampul (opsional)</label>
+                        <input 
+                            type="url" 
+                            id="editBookImage" 
+                            class="form-control" 
+                            placeholder="https://.../cover.jpg"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="editBookImageFile">Upload Gambar Sampul (opsional)</label>
+                        <input 
+                            type="file" 
+                            id="editBookImageFile" 
+                            class="form-control" 
+                            accept="image/*"
+                        >
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/stok.js"></script>
+</body>
+</html>

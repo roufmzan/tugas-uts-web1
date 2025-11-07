@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="History Transaksi - Toko Buku Online">
+    <title>History Transaksi - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand"><img src="assets/logo.png" alt="Logo" class="brand-logo"> Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="card">
+            <h2>History Transaksi</h2>
+            <p>Riwayat lengkap transaksi pemesanan buku</p>
+            
+            <!-- Search -->
+            <div class="form-group mt-20">
+                <input 
+                    type="text" 
+                    id="searchHistory" 
+                    class="form-control" 
+                    placeholder="🔍 Cari berdasarkan ID transaksi atau nama pelanggan..."
+                    onkeyup="searchHistory()"
+                >
+            </div>
+            
+            <!-- Transaction List -->
+            <div id="historyContainer" class="mt-20">
+                <!-- Data akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Detail Transaksi -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detail Transaksi</h2>
+                <span class="close" onclick="closeModal('detailModal')">&times;</span>
+            </div>
+            <div id="detailContent">
+                <!-- Detail akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/history.js"></script>
+</body>
+</html>

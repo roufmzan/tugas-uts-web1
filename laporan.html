@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laporan Pemesanan - Toko Buku Online">
+    <title>Laporan Pemesanan - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="dashboard.html" class="navbar-brand"><img src="assets/logo.png" alt="Logo" class="brand-logo"> Toko Buku Online</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <div class="card">
+            <h2>Laporan Pemesanan</h2>
+            
+            <!-- Filter -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="filterStatus">Filter Status</label>
+                    <select id="filterStatus" class="form-control" onchange="filterOrders()">
+                        <option value="">Semua Status</option>
+                        <option value="Selesai">Selesai</option>
+                        <option value="Proses">Proses</option>
+                        <option value="Dibatalkan">Dibatalkan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="searchOrder">Cari Transaksi</label>
+                    <input 
+                        type="text" 
+                        id="searchOrder" 
+                        class="form-control" 
+                        placeholder="Cari berdasarkan ID atau nama pelanggan..."
+                        onkeyup="filterOrders()"
+                    >
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Transaksi</th>
+                            <th>Tanggal</th>
+                            <th>Pelanggan</th>
+                            <th>Total Item</th>
+                            <th>Total Bayar</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Summary Cards -->
+        <div class="card">
+            <h3>Ringkasan Pemesanan</h3>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">📊</div>
+                    <h3 id="totalTransactions">0</h3>
+                    <p>Total Transaksi</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">✅</div>
+                    <h3 id="completedOrders">0</h3>
+                    <p>Pesanan Selesai</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">⏳</div>
+                    <h3 id="processingOrders">0</h3>
+                    <p>Sedang Diproses</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon">💰</div>
+                    <h3 id="totalRevenue">Rp 0</h3>
+                    <p>Total Pendapatan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/laporan.js"></script>
+</body>
+</html>
