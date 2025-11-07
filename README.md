@@ -1,3 +1,9 @@
+## Nama : RO'UF MUHAMMAD FAUZAN
+## NIM : 312410157
+## Kelas : TI.24.A.1
+## Mata Kuliah : Pemrograman Web 1 ( Ulangan Tengah Semester )
+## Dosen Pengampu : Agung Nugroho, S.Kom., M.Kom.
+
 # 📚 Aplikasi Web Pemesanan Buku Online
 
 Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus pada proses front-end dengan data dummy yang disimpan dalam file JavaScript.
@@ -5,6 +11,8 @@ Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus
 ## 🎯 Fitur Utama
 
 ### 1. **Halaman Login** (login.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 20 35" src="https://github.com/user-attachments/assets/0de0ce5e-7a8a-404f-8f55-ffb5750fc9de" />
+
 - Input email dan password
 - Validasi login dengan data dummy
 - Alert untuk kredensial yang salah
@@ -20,12 +28,16 @@ Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus
 - Siti Marlina — Email: `siti@gmail.com` | Password: `siti123` | Role: Admin
 
 **Cara Daftar Akun Baru:**
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 21 14" src="https://github.com/user-attachments/assets/9b2696ca-3c90-4d6f-bc93-ec3a505512f3" />
+
 1. Klik tombol "Daftar" di halaman login
 2. Isi form pendaftaran (nama, email, password)
 3. Akun akan tersimpan di localStorage browser
 4. Login dengan akun yang baru didaftarkan
 
 ### 2. **Dashboard** (dashboard.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 21 30" src="https://github.com/user-attachments/assets/49e4389b-8f71-4a6a-85c6-350a57273bf1" />
+
 - Greeting dinamis berdasarkan waktu (Pagi/Siang/Sore/Malam)
 - Tanggal dan waktu real-time
 - Navigasi ke semua menu utama:
@@ -35,6 +47,8 @@ Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus
   - History Transaksi
 
 ### 3. **Informasi Stok/Katalog** (stok.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 21 46" src="https://github.com/user-attachments/assets/c068ae6d-59e2-42fa-8f9b-709bc7be4697" />
+
 - Menampilkan data buku secara dinamis dari `data.js` dalam bentuk grid kartu
 - Pencarian/filter buku
 - Tambah buku baru
@@ -47,6 +61,8 @@ Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus
 - Validasi form input
 
 ### 4. **Halaman Pemesanan** (checkout.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 23 15" src="https://github.com/user-attachments/assets/67c5fec5-01d1-4fc0-8cfe-24a1ef96e6df" />
+
 - Pilih buku dari katalog
 - Keranjang belanja dinamis
 - Tambah/ubah/hapus item pesanan
@@ -56,6 +72,8 @@ Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus
 - Generate nomor Delivery Order
 
 ### 5. **Tracking Pengiriman** (tracking.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 24 10" src="https://github.com/user-attachments/assets/d46ab1ec-673d-4424-aabb-a89171990d0f" />
+
 - Input nomor Delivery Order
 - Menampilkan informasi pengiriman:
   - Nama pemesan
@@ -69,12 +87,16 @@ Aplikasi web sederhana untuk pemesanan buku pada toko online. Aplikasi ini fokus
 ### Bonus: Halaman Tambahan
 
 #### **Laporan Pemesanan** (laporan.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 24 33" src="https://github.com/user-attachments/assets/7a5fa05b-5042-4050-b2bb-ecb75dab9e7e" />
+
 - Tabel laporan transaksi
 - Filter berdasarkan status
 - Pencarian transaksi
 - Statistik ringkasan (total transaksi, pesanan selesai, revenue)
 
 #### **History Transaksi** (history.html)
+<img width="1440" height="900" alt="Tangkapan Layar 2025-11-07 pukul 16 24 39" src="https://github.com/user-attachments/assets/f79ca3fa-706d-4f29-b9d0-f485745add02" />
+
 - Riwayat lengkap transaksi
 - Pencarian berdasarkan ID atau nama pelanggan
 - Modal detail transaksi
